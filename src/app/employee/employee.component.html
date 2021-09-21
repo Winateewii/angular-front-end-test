@@ -1,0 +1,49 @@
+<div style="margin-left: auto; margin-right: auto;">
+  <div>
+    <h2 style="text-align: center;color: rgb(109, 104, 104);">Employee Provident fund management application</h2>
+  </div>
+  <div>
+    <p style="text-align: right;">last update on {{currentDate}}</p>
+  </div>
+  <div> 
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Employee Type</th>
+          <th>Start date (DD/MM/YYYY)</th>
+          <th>Salary</th>
+          <th>Rate (%)</th>
+          <th>Employee's Contribution</th>
+          <th>Employee's Benefit</th>
+          <th>Company's Contribution</th>
+          <th>Company's Benefit</th>
+          <th>Total Balance(Baht)</th>
+          <th>More information</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td style="text-align: left;">{{employee.firstname}} {{employee.lastname}}</td>
+          <td style="text-align: center;">{{getAge(employee.birthdate)}}</td>
+          <td style="text-align: center;">{{employee.employeetype}}</td>
+          <td style="text-align: center;">{{employee.startdate}}</td>
+          <td style="text-align: right;">{{convertFormatToCurrency(employee.salary)}}
+            {{getTimeUnit(employee.employeetype)}}
+          </td>
+          <td style="text-align: center;">{{ null != employee.pvfrate ? employee.pvfrate : '-' }}</td>
+          <td style="text-align: right;">{{getEmployeeContribution(employee.employeeid)}}</td>
+          <td style="text-align: right;">{{getEmployeeBenefit(employee.employeeid)}}</td>
+          <td style="text-align: right;">{{getCompanyContribution(employee.employeeid)}}</td>
+          <td style="text-align: right;">{{getCompanyBenefit(employee.employeeid)}}</td>
+          <td style="text-align: right;">{{getTotalBalance(employee.employeeid)}}</td>
+          <td style="text-align: center;" (click)="openPVDDetail(employee)"> <i class="fa fa-info-circle fa-2x"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-modal #modal></app-modal>
+
+</div>

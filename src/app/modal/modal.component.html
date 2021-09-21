@@ -1,0 +1,53 @@
+<div #myModal class="container">
+
+  <!-- Modal -->
+  <div class="modal" id="modal-one" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2>Provident fund details</h2>
+      </div>
+      <div class="modal-body">
+        <table style="width:60%">
+          <tr>
+            <th>Name:</th>
+            <td>{{modalDetail.fullName}}</td>
+          </tr>
+          <tr>
+            <th>Employee Type:</th>
+            <td>{{modalDetail.employeeType}}</td>
+          </tr>
+          <tr>
+            <th>Year Experience:</th>
+            <td>{{modalDetail.yearMonthExperienceText}}</td>
+          </tr>
+          <tr>
+            <th>Salary:</th>
+            <td>{{modalDetail.salaryTxt}}</td>
+          </tr>
+          <tr>
+            <th>Company Portion Rate:</th>
+            <td>{{modalDetail.companyPortionRateTxt}}</td>
+          </tr>
+        </table>
+        <table class="tableCss">
+          <tr>
+            <th>Employee's Portion</th>
+            <th>Company's Portion</th>
+            <th>Total (Baht)</th>
+          </tr>
+          <tr>
+            <td>{{modalDetail.employeePortionTxt}}</td>
+            <td>{{modalDetail.companyPortionTxt}}</td>
+            <td>{{modalDetail.totalTxt}}</td>
+          </tr>
+        </table>
+
+        
+      </div>
+      <div class="modal-footer"> <a (click)="close()" class="btn">close</a>
+
+      </div>
+    </div>
+  </div>
+
+</div>
